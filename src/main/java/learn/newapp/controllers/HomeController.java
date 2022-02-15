@@ -6,8 +6,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class HomeController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    ModelAndView Home(@RequestParam(name="name", required = false) String name){
-        System.out.println(name);
+    ModelAndView Home(){
         return new ModelAndView("home");
     }
 }
