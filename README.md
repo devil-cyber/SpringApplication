@@ -1,4 +1,4 @@
-# This Only for Learning purpose (Spring Apllication)
+# This is Only for Learning purpose (Spring Apllication)
 ![](https://github.com/devil-cyber/asset/raw/main/Screenshot%20from%202022-02-15%2016-21-56.png)
 
 ![](https://github.com/devil-cyber/asset/raw/main/Screenshot%20from%202022-02-15%2016-23-33.png)
