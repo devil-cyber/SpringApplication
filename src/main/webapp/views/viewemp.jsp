@@ -5,6 +5,9 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer"
+        />
+
         <title>Employee</title>
     </head>
     <style>
@@ -55,6 +58,14 @@
             margin-left: auto;
             margin-right: auto;
         }
+        
+        .edit {
+            cursor: pointer;
+        }
+        
+        .delete {
+            cursor: pointer;
+        }
     </style>
 
     <body>
@@ -68,6 +79,7 @@
                     <th>Salary</th>
                     <th>Department</th>
                     <th>Designation</th>
+                    <th>Action</th>
                 </tr>
                 <c:forEach items="${list}" var="emp">
                     <tr>
@@ -77,12 +89,41 @@
                         <td>&#8377; ${emp.salary}</td>
                         <td>${emp.department}</td>
                         <td>${emp.designation}</td>
+                        <td>
+                            <i class="fas fa-edit ${emp.id} edit"></i>&nbsp;
+                            <i class="fa-solid fa-trash-can ${emp.id} delete"></i>
+                        </td>
                     </tr>
                 </c:forEach>
             </table>
             <p class="text"><a href="/empform">Add More Employee</a></p>
             <p class="text"><a href="/">Home</a></p>
         </div>
+        <script>
+            const del = document.querySelectorAll(".delete");
+            const xhttp = new XMLHttpRequest();
+
+            function xhr(data, path, request_type) {
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        // Typical action to be performed when the document is ready:
+                        console.log(xhttp.responseText);
+                        if (xhttp.responseText === "true") {
+                            window.location.reload();
+                        }
+                    }
+                };
+                xhttp.open(request_type, "http://127.0.0.1:8000/" + path);
+                xhttp.send(data);
+            }
+            del.forEach((del) => {
+                del.addEventListener("click", (e) => {
+                    let id = parseInt(del.classList[2]);
+                    console.log(id);
+                    xhr(id, "delete", "POST");
+                });
+            });
+        </script>
     </body>
 
     </html>

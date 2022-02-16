@@ -85,4 +85,17 @@ public class AddEmployee {
         }
         return list;
     }
+    public static String DeleteEmployee(int id){
+        try{
+            Connection connection = CreateConnection.connect();
+            String query = String.format("DELETE FROM Empnew WHERE id=%d", id);
+            PreparedStatement ps = connection.prepareStatement(query);
+            int i = ps.executeUpdate();
+            System.out.println(1+" Record Deleted from Database");
+        }catch(SQLException e){
+            System.out.println(e);
+            return e.toString();
+        }
+        return "true";
+    }
 }

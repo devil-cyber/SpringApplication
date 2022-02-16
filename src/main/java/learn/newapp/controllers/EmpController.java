@@ -4,10 +4,10 @@ import learn.newapp.Employee.Emp;
 import java.util.ArrayList;
 import java.util.List;
 import learn.newapp.Database.AddEmployee;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -30,4 +30,14 @@ public class EmpController {
         List<Emp> list = new ArrayList<Emp>(AddEmployee.GetEmployee());
         return new ModelAndView("viewemp", "list", list);
     }
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    ResponseEntity<String> DeleteEmployee(@RequestBody String id){
+        String status = AddEmployee.DeleteEmployee(Integer.parseInt(id));
+        if(status.equals("true")){
+            return ResponseEntity.status(HttpStatus.OK).body("true");
+        }
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("false");
+
+    }
+
 }
