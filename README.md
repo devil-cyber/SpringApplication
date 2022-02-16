@@ -1,4 +1,10 @@
 # This is Only for Learning purpose (Spring Apllication)
+`TODO:`
+- [X] Feature to Add new records 
+- [X] Feature to view all records
+- [X] Feature to delete particular record
+- [X] Feature to edit and update particular record
+- [X] Login Feature
 ![](https://github.com/devil-cyber/asset/raw/main/Screenshot%20from%202022-02-15%2016-21-56.png)
 
 ![](https://github.com/devil-cyber/asset/raw/main/Screenshot%20from%202022-02-15%2016-23-33.png)
