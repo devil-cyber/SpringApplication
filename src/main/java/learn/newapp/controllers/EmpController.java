@@ -18,7 +18,8 @@ public class EmpController {
     }
     @RequestMapping(value="/save", method = RequestMethod.POST)
     public ModelAndView save(@ModelAttribute("emp")Emp emp){
-        String data = AddEmployee.NewEmployee(emp.getId(), emp.getName(), emp.getSalary(), emp.getDesignation());
+        String data = AddEmployee.NewEmployee(emp.getId(), emp.getName(), emp.getSalary(), emp.getDesignation(),
+                emp.getDepartment(), emp.getAge());
         if(data.equals("true")){
             return new ModelAndView("redirect:/viewemp");
         }

@@ -64,19 +64,24 @@
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
+                    <th>Age</th>
                     <th>Salary</th>
+                    <th>Department</th>
                     <th>Designation</th>
                 </tr>
                 <c:forEach items="${list}" var="emp">
                     <tr>
                         <td>${emp.id}</td>
                         <td>${emp.name}</td>
+                        <td>${emp.age}</td>
                         <td>&#8377; ${emp.salary}</td>
+                        <td>${emp.department}</td>
                         <td>${emp.designation}</td>
                     </tr>
                 </c:forEach>
             </table>
-            <h6 class="text"><a href="/empform">Add More Employee</a></h6>
+            <p class="text"><a href="/empform">Add More Employee</a></p>
+            <p class="text"><a href="/">Home</a></p>
         </div>
     </body>
 
