@@ -14,12 +14,11 @@
 - Now go inside NewappAllication.java and hit run
 - Go to browser and enter http://127.0.0.1:8000 
 # Some Sneek Peek
-![](https://github.com/devil-cyber/asset/raw/main/Screenshot%20from%202022-02-15%2016-21-56.png)
+![](https://github.com/devil-cyber/asset/raw/main/sds1.png)
 
-![](https://github.com/devil-cyber/asset/raw/main/Screenshot%20from%202022-02-15%2016-23-33.png)
+![](https://github.com/devil-cyber/asset/raw/main/sds2.png)
 
-![](https://github.com/devil-cyber/asset/raw/main/Screenshot%20from%202022-02-15%2016-23-43.png)
+![](https://github.com/devil-cyber/asset/raw/main/sds3.png)
 
 ## Demo Of App:
-
-[![Spring App](https://res.cloudinary.com/marcomontalbano/image/upload/v1644908140/video_to_markdown/images/youtube--qdezhQljO8I-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://youtu.be/qdezhQljO8I "Spring App")
+[![Spring Boot App](https://res.cloudinary.com/marcomontalbano/image/upload/v1645090650/video_to_markdown/images/youtube--3go4cDR4FfA-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://youtu.be/3go4cDR4FfA "Spring Boot Aapp")
