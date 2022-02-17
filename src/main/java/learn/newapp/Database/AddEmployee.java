@@ -98,4 +98,55 @@ public class AddEmployee {
         }
         return "true";
     }
+    public static List<Emp> GetEmployeeById(int id) {
+        String query = String.format("SELECT * FROM Empnew WHERE id=%d", id);
+        List<Emp> list = new ArrayList<Emp>();
+        Emp emp = null;
+        try {
+            Connection connection = CreateConnection.connect();
+            Statement st = connection.createStatement();
+            ResultSet rs = st.executeQuery(query);
+            while (rs.next()) {
+                String n = rs.getString("name");
+                int i = rs.getInt("id");
+                float s = rs.getFloat("salary");
+                String position = rs.getString("designation");
+                String department = rs.getString("department");
+                int age = rs.getInt("age");
+                emp = new Emp(i, n, s, position, department, age);
+                list.add(emp);
+            }
+            st.close();
+        } catch (SQLException e) {
+            System.out.println(e);
+            list.add(emp);
+        }
+        return list;
+    }
+    public static String UpdateEmployee(Emp emp){
+        int id = emp.getId();
+        String name = emp.getName();
+        String department = emp.getDepartment();
+        String designation = emp.getDesignation();
+        float salary = emp.getSalary();
+        int age = emp.getAge();
+        String query = "UPDATE Empnew SET name=?,department=?, designation=?,age=?, salary=? WHERE id=?";
+
+        try{
+            Connection connection = CreateConnection.connect();
+            PreparedStatement pstmt = connection.prepareStatement(query);
+            pstmt.setInt(6, id);
+            pstmt.setString(1, name);
+            pstmt.setString(2, department);
+            pstmt.setString(3, designation);
+            pstmt.setInt(4, age);
+            pstmt.setFloat(5, salary);
+            int i = pstmt.executeUpdate();
+            System.out.println(i+" row updated in database");
+        }catch(SQLException e){
+            System.out.println(e);
+            return e.toString();
+        }
+        return "true";
+    }
 }

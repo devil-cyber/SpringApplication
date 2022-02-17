@@ -3,7 +3,7 @@
 - [X] Feature to Add new records ✔
 - [X] Feature to view all records ✔️
 - [X] Feature to delete particular record ✔️
-- [X] Feature to edit and update particular record ✅
+- [X] Feature to edit and update particular record ✔️
 - [X] Login Feature ✅
 
 `How To Use:`

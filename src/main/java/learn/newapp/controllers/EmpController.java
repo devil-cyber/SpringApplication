@@ -23,7 +23,7 @@ public class EmpController {
         if(data.equals("true")){
             return new ModelAndView("redirect:/viewemp");
         }
-        return new ModelAndView("redirect:/empform");
+        return new ModelAndView("errorhandler", "message", data);
     }
     @RequestMapping("/viewemp")
     public  ModelAndView viewemp(){
@@ -38,6 +38,20 @@ public class EmpController {
         }
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("false");
 
+    }
+    @RequestMapping(value="/editform/{id}/{uuid}")
+    ModelAndView EditEmployee(@PathVariable String id, @PathVariable String uuid){
+        int newId = Integer.parseInt(id);
+        List<Emp> list = new ArrayList<Emp>(AddEmployee.GetEmployeeById(newId));
+        return new ModelAndView("editform", "list", list);
+    }
+    @RequestMapping(value="/update", method = RequestMethod.POST)
+    ModelAndView UpdateEmployee(@ModelAttribute("emp")Emp emp){
+        String data = AddEmployee.UpdateEmployee(emp);
+        if(data.equals("true")){
+            return new ModelAndView("redirect:/viewemp");
+        }
+        return new ModelAndView("errorhandler", "message", data);
     }
 
 }

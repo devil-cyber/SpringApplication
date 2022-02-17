@@ -7,7 +7,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer"
         />
-
         <title>Employee</title>
     </head>
     <style>
@@ -61,6 +60,7 @@
         
         .edit {
             cursor: pointer;
+            color: black;
         }
         
         .delete {
@@ -90,7 +90,8 @@
                         <td>${emp.department}</td>
                         <td>${emp.designation}</td>
                         <td>
-                            <i class="fas fa-edit ${emp.id} edit"></i>&nbsp;
+                            <a id="href" href="/editform/${emp.id}/secret${emp.designation}###${emp.salary}${emp.name}"><i class="fas fa-edit ${emp.id} edit"></i
+              ></a> &nbsp;
                             <i class="fa-solid fa-trash-can ${emp.id} delete"></i>
                         </td>
                     </tr>
@@ -101,7 +102,11 @@
         </div>
         <script>
             const del = document.querySelectorAll(".delete");
+            const edit = document.querySelectorAll(".edit");
+            const a = document.getElementById("href");
             const xhttp = new XMLHttpRequest();
+            const modalBtns = [...document.querySelectorAll(".button")];
+            let closeBtns = [...document.querySelectorAll(".close")];
 
             function xhr(data, path, request_type) {
                 xhttp.onreadystatechange = function() {
@@ -121,6 +126,12 @@
                     let id = parseInt(del.classList[2]);
                     console.log(id);
                     xhr(id, "delete", "POST");
+                });
+            });
+            edit.forEach((edit) => {
+                edit.addEventListener("click", (e) => {
+                    let id = parseInt(edit.classList[2]);
+                    console.log(id);
                 });
             });
         </script>
