@@ -1,4 +1,4 @@
-# This is Only for Learning purpose (Spring Apllication)
+# This is Only for Learning purpose (Spring Appllication)
 `TODO:` Note: ✔️ Means Implemented and ✅ Means Yet to Implement
 - [X] Feature to Add new records ✔
 - [X] Feature to view all records ✔️
